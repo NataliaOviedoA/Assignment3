@@ -4,34 +4,34 @@ from torch import nn
 import numpy as np
 # Skeleton base 
 
-# class MyRNN(nn.Module):
-#     # Need the input_size, hidden_size and output_size
-#     def __init__(self, input_size, hidden_size, output_size):
-#         super(MyRNN, self).__init__()
-#         self.hidden_size = hidden_size
-#         # For the 2 linear layers
-#         #self.in2hidden = nn.Linear(input_size + hidden_size, hidden_size)
-#         #self.in2output = nn.Linear(input_size + hidden_size, output_size)
+class MyRNN(nn.Module):
+    # Need the input_size, hidden_size and output_size
+    def __init__(self, input_size, hidden_size, output_size):
+        super(MyRNN, self).__init__()
+        self.hidden_size = hidden_size
+        # For the 2 linear layers
+        #self.in2hidden = nn.Linear(input_size + hidden_size, hidden_size)
+        #self.in2output = nn.Linear(input_size + hidden_size, output_size)
     
-#     def forward(self, x, hidden_state):
-#         combined = torch.cat((x, hidden_state), 1)
-#         hidden = torch.sigmoid(self.in2hidden(combined))
-#         output = self.in2output(combined)
-#         return output, hidden
+    def forward(self, x, hidden_state):
+        combined = torch.cat((x, hidden_state), 1)
+        hidden = torch.sigmoid(self.in2hidden(combined))
+        output = self.in2output(combined)
+        return output, hidden
     
-#     def init_hidden(self):
-#         return nn.init.kaiming_uniform_(torch.empty(1, self.hidden_size))
+    def init_hidden(self):
+        return nn.init.kaiming_uniform_(torch.empty(1, self.hidden_size))
 
-# hidden_size = 256
-# learning_rate = 0.001
-# input_size = 0
-# output_size = 0
+hidden_size = 256
+learning_rate = 0.001
+input_size = 0
+output_size = 0
 
-# model = MyRNN(input_size, hidden_size, output_size)
-# # Using the cross entropy loss
-# criterion = nn.CrossEntropyLoss()
-# # Which optimizer are we going to use?
-# optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
+model = MyRNN(input_size, hidden_size, output_size)
+# Using the cross entropy loss
+criterion = nn.CrossEntropyLoss()
+# Which optimizer are we going to use?
+optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
 # num_epochs = 2
 # print_interval = 3000
@@ -59,6 +59,18 @@ for epoch in range(num_epochs):
             )
 '''
 
+
+
+
+
+
+
+
+
+
+
+
+
 #If final is true, the function returns the canonical test/train split with 25 000 reviews in each.
 #If final is false, a validation split is returned with 20 000 training instances and 5 000
 #validation instances.
@@ -74,21 +86,17 @@ for epoch in range(num_epochs):
 # w2i A dictionary mapping the words to their indices. w2i['film'] returns the index for the word "film".
 
 # To have a look at your data (always a good idea), you can convert a sequence from indices to words as follows
-print([i2w[w] for w in x_train[141]])
+#print([i2w[w] for w in x_train[141]])
 
 # To train, you'll need to loop over x_train and y_train and slice out batches. 
 # Each batch will need to be padded to a fixed length and then converted to a torch tensor. 
 # Implement this padding and conversion to a tensor
-
-
-
 #Batch size
 batch_size = 1000
 
 #Counters
 k = 0
 j = batch_size
-
 #Splitting the xtrain into batches.
 matrix = []  
 for i in range(20):
@@ -111,4 +119,23 @@ for i in matrix:
             j.append(0)
 
 
- 
+
+# Embedding size 
+embedding_size = 300
+# Embedding dimension
+embedding_dim = 20000
+embedding = nn.Embedding(embedding_dim, embedding_size, max_norm=True)
+value = matrix[0]
+
+idx = torch.tensor(value, dtype=torch.long)
+print(idx.shape)
+#print(idx.shape)
+
+b = embedding(idx)
+print(b)
+    
+    
+    
+    
+    
+            
