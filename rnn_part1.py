@@ -2,61 +2,6 @@ import load_dataset as data
 import torch 
 from torch import nn
 import numpy as np
-# Skeleton base 
-
-class MyRNN(nn.Module):
-    # Need the input_size, hidden_size and output_size
-    def __init__(self, input_size, hidden_size, output_size):
-        super(MyRNN, self).__init__()
-        self.hidden_size = hidden_size
-        # For the 2 linear layers
-        #self.in2hidden = nn.Linear(input_size + hidden_size, hidden_size)
-        #self.in2output = nn.Linear(input_size + hidden_size, output_size)
-    
-    def forward(self, x, hidden_state):
-        combined = torch.cat((x, hidden_state), 1)
-        hidden = torch.sigmoid(self.in2hidden(combined))
-        output = self.in2output(combined)
-        return output, hidden
-    
-    def init_hidden(self):
-        return nn.init.kaiming_uniform_(torch.empty(1, self.hidden_size))
-
-hidden_size = 300
-learning_rate = 0.001
-input_size = 20000
-output_size = 20000
-
-# Using the cross entropy loss
-# criterion = nn.CrossEntropyLoss()
-# Which optimizer are we going to use?
-# optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
-
-# num_epochs = 2
-# print_interval = 3000
-
-# training (forward, loss and backward)
-'''
-for epoch in range(num_epochs):
-    random.shuffle(train_dataset)
-    for i, (name, label) in enumerate(train_dataset):
-        hidden_state = model.init_hidden()
-        for char in name:
-            output, hidden_state = model(char, hidden_state)
-        loss = criterion(output, label)
-
-        optimizer.zero_grad()
-        loss.backward()
-        nn.utils.clip_grad_norm_(model.parameters(), 1)
-        optimizer.step()
-        
-        if (i + 1) % print_interval == 0:
-            print(
-                f"Epoch [{epoch + 1}/{num_epochs}], "
-                f"Step [{i + 1}/{len(train_dataset)}], "
-                f"Loss: {loss.item():.4f}"
-            )
-'''
 
 #If final is true, the function returns the canonical test/train split with 25 000 reviews in each.
 #If final is false, a validation split is returned with 20 000 training instances and 5 000
@@ -104,6 +49,11 @@ for i in matrix:
     for j in i:
         while len(j) < maxLength:
             j.append(0)
+
+hidden_size = 300
+learning_rate = 0.001
+input_size = 20000
+output_size = 20000
 
 # Size of the dictionary of embedding
 embedding_num = 99429
