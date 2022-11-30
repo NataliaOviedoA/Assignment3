@@ -79,23 +79,32 @@ print([i2w[w] for w in x_train[141]])
 # Each batch will need to be padded to a fixed length and then converted to a torch tensor. 
 # Implement this padding and conversion to a tensor
 
+
+
+#Batch size
 batch_size = 1000
 
+#Counters
 k = 0
 j = batch_size
 
+#Splitting the xtrain into batches
 matrix = []  
 for i in range(20):
     matrix.append(x_train[k:j])
     k = j
-    j = j + batch_size
+    j = j + batch_size          
 
-count = 0
 
+#Looping the matrix
 for i in matrix:
-    
+    #Getting the highest value from each value
     maxLength = max(len(x) for x in i)
-    
+    #Padding each elemment to match the maxLength
     for j in i:
         while len(j) < maxLength:
             j.append(0)
+            
+
+
+
