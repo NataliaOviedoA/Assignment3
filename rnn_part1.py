@@ -3,34 +3,34 @@ import torch
 from torch import nn
 # Skeleton base 
 
-class MyRNN(nn.Module):
-    # Need the input_size, hidden_size and output_size
-    def __init__(self, input_size, hidden_size, output_size):
-        super(MyRNN, self).__init__()
-        self.hidden_size = hidden_size
-        # For the 2 linear layers
-        #self.in2hidden = nn.Linear(input_size + hidden_size, hidden_size)
-        #self.in2output = nn.Linear(input_size + hidden_size, output_size)
+# class MyRNN(nn.Module):
+#     # Need the input_size, hidden_size and output_size
+#     def __init__(self, input_size, hidden_size, output_size):
+#         super(MyRNN, self).__init__()
+#         self.hidden_size = hidden_size
+#         # For the 2 linear layers
+#         #self.in2hidden = nn.Linear(input_size + hidden_size, hidden_size)
+#         #self.in2output = nn.Linear(input_size + hidden_size, output_size)
     
-    def forward(self, x, hidden_state):
-        combined = torch.cat((x, hidden_state), 1)
-        hidden = torch.sigmoid(self.in2hidden(combined))
-        output = self.in2output(combined)
-        return output, hidden
+#     def forward(self, x, hidden_state):
+#         combined = torch.cat((x, hidden_state), 1)
+#         hidden = torch.sigmoid(self.in2hidden(combined))
+#         output = self.in2output(combined)
+#         return output, hidden
     
-    def init_hidden(self):
-        return nn.init.kaiming_uniform_(torch.empty(1, self.hidden_size))
+#     def init_hidden(self):
+#         return nn.init.kaiming_uniform_(torch.empty(1, self.hidden_size))
 
-hidden_size = 256
-learning_rate = 0.001
-input_size = 0
-output_size = 0
+# hidden_size = 256
+# learning_rate = 0.001
+# input_size = 0
+# output_size = 0
 
-model = MyRNN(input_size, hidden_size, output_size)
-# Using the cross entropy loss
-criterion = nn.CrossEntropyLoss()
-# Which optimizer are we going to use?
-optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
+# model = MyRNN(input_size, hidden_size, output_size)
+# # Using the cross entropy loss
+# criterion = nn.CrossEntropyLoss()
+# # Which optimizer are we going to use?
+# optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
 # num_epochs = 2
 # print_interval = 3000
@@ -88,23 +88,28 @@ batch_size = 1000
 k = 0
 j = batch_size
 
-#Splitting the xtrain into batches
+#Splitting the xtrain into batches.
 matrix = []  
 for i in range(20):
     matrix.append(x_train[k:j])
     k = j
     j = j + batch_size          
 
-
-#Looping the matrix
+maxLength = 0
+#Looping the matrix.
 for i in matrix:
-    #Getting the highest value from each value
-    maxLength = max(len(x) for x in i)
-    #Padding each elemment to match the maxLength
+    #Getting the highest value from each value.
+    current_length = max(len(x) for x in i)
+    if current_length > maxLength:
+        maxLength = current_length
+
+#adding padding to each element of the list through a nested loop.
+for i in matrix:
     for j in i:
         while len(j) < maxLength:
             j.append(0)
-            
+
+
 
 
 
