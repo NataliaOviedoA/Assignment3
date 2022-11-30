@@ -73,7 +73,7 @@ for epoch in range(num_epochs):
 # w2i A dictionary mapping the words to their indices. w2i['film'] returns the index for the word "film".
 
 # To have a look at your data (always a good idea), you can convert a sequence from indices to words as follows
-print([i2w[w] for w in x_train[141]])
+#print([i2w[w] for w in x_train[141]])
 
 # To train, you'll need to loop over x_train and y_train and slice out batches. 
 # Each batch will need to be padded to a fixed length and then converted to a torch tensor. 
@@ -105,13 +105,19 @@ for i in matrix:
         while len(j) < maxLength:
             j.append(0)
 
-#print(len(matrix[0]))
+
+
 # Embedding size 
 embedding_size = 300
 # Embedding dimension
 embedding_dim = 20000
 embedding = nn.Embedding(embedding_dim, embedding_size, max_norm=True)
-idx = torch.tensor(matrix, dtype=torch.long)
+value = matrix[0]
+
+idx = torch.tensor(value, dtype=torch.long)
+print(idx.shape)
+#print(idx.shape)
+
 b = embedding(idx)
 print(b)
             
