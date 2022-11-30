@@ -58,18 +58,6 @@ for epoch in range(num_epochs):
             )
 '''
 
-
-
-
-
-
-
-
-
-
-
-
-
 #If final is true, the function returns the canonical test/train split with 25 000 reviews in each.
 #If final is false, a validation split is returned with 20 000 training instances and 5 000
 #validation instances.
@@ -90,3 +78,24 @@ print([i2w[w] for w in x_train[141]])
 # To train, you'll need to loop over x_train and y_train and slice out batches. 
 # Each batch will need to be padded to a fixed length and then converted to a torch tensor. 
 # Implement this padding and conversion to a tensor
+
+batch_size = 1000
+
+k = 0
+j = batch_size
+
+matrix = []  
+for i in range(20):
+    matrix.append(x_train[k:j])
+    k = j
+    j = j + batch_size
+
+count = 0
+
+for i in matrix:
+    
+    maxLength = max(len(x) for x in i)
+    
+    for j in i:
+        while len(j) < maxLength:
+            j.append(0)
