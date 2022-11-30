@@ -22,16 +22,15 @@ class MyRNN(nn.Module):
     def init_hidden(self):
         return nn.init.kaiming_uniform_(torch.empty(1, self.hidden_size))
 
-hidden_size = 256
+hidden_size = 300
 learning_rate = 0.001
-input_size = 0
-output_size = 0
+input_size = 20000
+output_size = 20000
 
-model = MyRNN(input_size, hidden_size, output_size)
 # Using the cross entropy loss
-criterion = nn.CrossEntropyLoss()
+# criterion = nn.CrossEntropyLoss()
 # Which optimizer are we going to use?
-optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
+# optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
 # num_epochs = 2
 # print_interval = 3000
@@ -59,18 +58,6 @@ for epoch in range(num_epochs):
             )
 '''
 
-
-
-
-
-
-
-
-
-
-
-
-
 #If final is true, the function returns the canonical test/train split with 25 000 reviews in each.
 #If final is false, a validation split is returned with 20 000 training instances and 5 000
 #validation instances.
@@ -86,19 +73,18 @@ for epoch in range(num_epochs):
 # w2i A dictionary mapping the words to their indices. w2i['film'] returns the index for the word "film".
 
 # To have a look at your data (always a good idea), you can convert a sequence from indices to words as follows
-#print([i2w[w] for w in x_train[141]])
-print(i2w[99429])
+# print([i2w[w] for w in x_train[141]])
 
 # To train, you'll need to loop over x_train and y_train and slice out batches. 
 # Each batch will need to be padded to a fixed length and then converted to a torch tensor. 
 # Implement this padding and conversion to a tensor
-#Batch size
+# Batch size
 batch_size = 1000
 
-#Counters
+# Counters
 k = 0
 j = batch_size
-#Splitting the xtrain into batches.
+# Splitting the xtrain into batches.
 matrix = []  
 for i in range(20):
     matrix.append(x_train[k:j])
@@ -106,14 +92,14 @@ for i in range(20):
     j = j + batch_size
 
 maxLength = 0
-#Looping the matrix.
+# Looping the matrix.
 for i in matrix:
-    #Getting the highest value from each value.
+    # Getting the highest value from each value.
     current_length = max(len(x) for x in i)
     if current_length > maxLength:
         maxLength = current_length
 
-#adding padding to each element of the list through a nested loop.
+# adding padding to each element of the list through a nested loop.
 for i in matrix:
     for j in i:
         while len(j) < maxLength:
@@ -130,6 +116,15 @@ embedding = nn.Embedding(embedding_num, embedding_dim)
 batch = torch.tensor(matrix[0], dtype=torch.long)
 # Batch with embedding 
 batch_embedding = embedding(batch)
+
+# Linear dimention for second layer after embedding
+hidden_dim = nn.Linear(embedding_dim, hidden_size)
+
+# Hidden layer
+hidden = hidden_dim(batch_embedding)
+
+# Relu activation for non-linearity
+hidden = torch.relu(hidden)
 
 
 
