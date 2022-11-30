@@ -2,36 +2,37 @@ import load_dataset as data
 import torch 
 from torch import nn
 import numpy as np
+import gc
 # Skeleton base 
 
-class MyRNN(nn.Module):
-    # Need the input_size, hidden_size and output_size
-    def __init__(self, input_size, hidden_size, output_size):
-        super(MyRNN, self).__init__()
-        self.hidden_size = hidden_size
-        # For the 2 linear layers
-        #self.in2hidden = nn.Linear(input_size + hidden_size, hidden_size)
-        #self.in2output = nn.Linear(input_size + hidden_size, output_size)
+# class MyRNN(nn.Module):
+#     # Need the input_size, hidden_size and output_size
+#     def __init__(self, input_size, hidden_size, output_size):
+#         super(MyRNN, self).__init__()
+#         self.hidden_size = hidden_size
+#         # For the 2 linear layers
+#         #self.in2hidden = nn.Linear(input_size + hidden_size, hidden_size)
+#         #self.in2output = nn.Linear(input_size + hidden_size, output_size)
     
-    def forward(self, x, hidden_state):
-        combined = torch.cat((x, hidden_state), 1)
-        hidden = torch.sigmoid(self.in2hidden(combined))
-        output = self.in2output(combined)
-        return output, hidden
+#     def forward(self, x, hidden_state):
+#         combined = torch.cat((x, hidden_state), 1)
+#         hidden = torch.sigmoid(self.in2hidden(combined))
+#         output = self.in2output(combined)
+#         return output, hidden
     
-    def init_hidden(self):
-        return nn.init.kaiming_uniform_(torch.empty(1, self.hidden_size))
+#     def init_hidden(self):
+#         return nn.init.kaiming_uniform_(torch.empty(1, self.hidden_size))
 
-hidden_size = 256
-learning_rate = 0.001
-input_size = 0
-output_size = 0
+# hidden_size = 256
+# learning_rate = 0.001
+# input_size = 0
+# output_size = 0
 
-model = MyRNN(input_size, hidden_size, output_size)
-# Using the cross entropy loss
-criterion = nn.CrossEntropyLoss()
-# Which optimizer are we going to use?
-optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
+# model = MyRNN(input_size, hidden_size, output_size)
+# # Using the cross entropy loss
+# criterion = nn.CrossEntropyLoss()
+# # Which optimizer are we going to use?
+# optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
 # num_epochs = 2
 # print_interval = 3000
@@ -92,14 +93,14 @@ for epoch in range(num_epochs):
 # Each batch will need to be padded to a fixed length and then converted to a torch tensor. 
 # Implement this padding and conversion to a tensor
 #Batch size
-batch_size = 1000
+batch_size = 250
 
 #Counters
 k = 0
 j = batch_size
 #Splitting the xtrain into batches.
 matrix = []  
-for i in range(20):
+for i in range(80):
     matrix.append(x_train[k:j])
     k = j
     j = j + batch_size          
@@ -118,21 +119,36 @@ for i in matrix:
         while len(j) < maxLength:
             j.append(0)
 
+#Embeddong process good job natalia
+embedding = nn.Embedding(99430, 300)
+b1 = torch.tensor(matrix[0], dtype = torch.long)
+b = embedding(b1)
 
 
-# Embedding size 
-embedding_size = 300
-# Embedding dimension
-embedding_dim = 20000
-embedding = nn.Embedding(embedding_dim, embedding_size, max_norm=True)
-value = matrix[0]
+#deleting variables from memory
+del b1
+del maxLength
+gc.collect()
 
-idx = torch.tensor(value, dtype=torch.long)
-print(idx.shape)
-#print(idx.shape)
 
-b = embedding(idx)
-print(b)
+#First linear layer
+linear1 = nn.Linear(300,300)
+output1 = linear1(b)
+
+#ReLU
+relu = nn.ReLU()
+output2 = relu(output1)
+
+#Applying torchmax to reduce dimensionality
+output3, _  = torch.max(output2, 1)
+
+
+#Project down number of classes?
+linear3 = nn.Linear(300,2)
+output4 = linear3(output3)
+print(np.shape(output4))
+
+
     
     
     
