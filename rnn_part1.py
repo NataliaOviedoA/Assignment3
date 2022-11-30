@@ -1,6 +1,7 @@
 import load_dataset as data
 import torch 
 from torch import nn
+import numpy as np
 # Skeleton base 
 
 # class MyRNN(nn.Module):
@@ -110,6 +111,4 @@ for i in matrix:
             j.append(0)
 
 
-
-
-
+ 
