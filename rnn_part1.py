@@ -98,12 +98,25 @@ batch_size = 250
 #Counters
 k = 0
 j = batch_size
+
+
+
 #Splitting the xtrain into batches.
 matrix = []  
 for i in range(80):
     matrix.append(x_train[k:j])
     k = j
-    j = j + batch_size          
+    j = j + batch_size  
+#Splitting labels into batches
+labels = []
+k = 0
+j = batch_size
+for i in range(80):
+    labels.append(y_train[k:j])  
+    k = j
+    j = j+batch_size  
+    
+
 
 maxLength = 0
 #Looping the matrix.
@@ -119,9 +132,10 @@ for i in matrix:
         while len(j) < maxLength:
             j.append(0)
 
-#Embeddong process good job natalia
+#Embeddong process and initializing xtrain e ytrain(labels)
 embedding = nn.Embedding(99430, 300)
 b1 = torch.tensor(matrix[0], dtype = torch.long)
+labels = torch.tensor(labels[0], dtype =torch.long)
 b = embedding(b1)
 
 
@@ -143,10 +157,15 @@ output2 = relu(output1)
 output3, _  = torch.max(output2, 1)
 
 
-#Project down number of classes?
+#Project down number of classes
 linear3 = nn.Linear(300,2)
 output4 = linear3(output3)
-print(np.shape(output4))
+
+#getting predictions
+predictions = torch.argmax(output4,1)
+accuracy = torch.sum(predictions == labels[0])/batch_size
+print(accuracy)
+
 
 
     
