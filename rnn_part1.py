@@ -1,6 +1,7 @@
 import load_dataset as data
 import torch 
 from torch import nn
+import numpy as np
 # Skeleton base 
 
 # class MyRNN(nn.Module):
@@ -74,6 +75,7 @@ for epoch in range(num_epochs):
 
 # To have a look at your data (always a good idea), you can convert a sequence from indices to words as follows
 #print([i2w[w] for w in x_train[141]])
+print(i2w[99429])
 
 # To train, you'll need to loop over x_train and y_train and slice out batches. 
 # Each batch will need to be padded to a fixed length and then converted to a torch tensor. 
@@ -89,7 +91,7 @@ matrix = []
 for i in range(20):
     matrix.append(x_train[k:j])
     k = j
-    j = j + batch_size          
+    j = j + batch_size
 
 maxLength = 0
 #Looping the matrix.
@@ -105,23 +107,17 @@ for i in matrix:
         while len(j) < maxLength:
             j.append(0)
 
-
-
-# Embedding size 
-embedding_size = 300
-# Embedding dimension
-embedding_dim = 20000
-embedding = nn.Embedding(embedding_dim, embedding_size, max_norm=True)
-value = matrix[0]
-
-idx = torch.tensor(value, dtype=torch.long)
-print(idx.shape)
-#print(idx.shape)
-
-b = embedding(idx)
-print(b)
-            
-
+# Size of the dictionary of embedding
+embedding_num = 99429
+# Embedding dimension - the size of each embedding vector
+embedding_dim = 300 
+# Embedding module
+embedding = nn.Embedding(embedding_num, embedding_dim)
+# Here - should be a loop over the 20 batches of the matrix
+# Only for matrix[0] as an example
+batch = torch.tensor(matrix[0], dtype=torch.long)
+# Batch with embedding 
+batch_embedding = embedding(batch)
 
 
 
