@@ -26,11 +26,11 @@ learning_rate = 0.001
 input_size = 0
 output_size = 0
 
-model = MyRNN(input_size, hidden_size, output_size)
+#model = MyRNN(input_size, hidden_size, output_size)
 # Using the cross entropy loss
-criterion = nn.CrossEntropyLoss()
+#criterion = nn.CrossEntropyLoss()
 # Which optimizer are we going to use?
-optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
+#optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
 # num_epochs = 2
 # print_interval = 3000
@@ -78,24 +78,18 @@ print([i2w[w] for w in x_train[141]])
 # To train, you'll need to loop over x_train and y_train and slice out batches. 
 # Each batch will need to be padded to a fixed length and then converted to a torch tensor. 
 # Implement this padding and conversion to a tensor
-
-
-
 #Batch size
 batch_size = 1000
 
 #Counters
 k = 0
 j = batch_size
-
 #Splitting the xtrain into batches
 matrix = []  
 for i in range(20):
     matrix.append(x_train[k:j])
     k = j
     j = j + batch_size          
-
-
 #Looping the matrix
 for i in matrix:
     #Getting the highest value from each value
@@ -104,6 +98,16 @@ for i in matrix:
     for j in i:
         while len(j) < maxLength:
             j.append(0)
+
+#print(len(matrix[0]))
+# Embedding size 
+embedding_size = 300
+# Embedding dimension
+embedding_dim = 20000
+embedding = nn.Embedding(embedding_dim, embedding_size, max_norm=True)
+idx = torch.tensor(matrix, dtype=torch.long)
+b = embedding(idx)
+print(b)
             
 
 
