@@ -3,6 +3,10 @@ import torch
 from torch import nn
 import numpy as np
 import gc
+import torch.nn.functional as F
+import torchvision
+import torch.optim as optim
+import matplotlib.pyplot as plt
 # Skeleton base 
 
 # class MyRNN(nn.Module):
@@ -59,19 +63,6 @@ for epoch in range(num_epochs):
                 f"Loss: {loss.item():.4f}"
             )
 '''
-
-
-
-
-
-
-
-
-
-
-
-
-
 #If final is true, the function returns the canonical test/train split with 25 000 reviews in each.
 #If final is false, a validation split is returned with 20 000 training instances and 5 000
 #validation instances.
@@ -93,78 +84,82 @@ for epoch in range(num_epochs):
 # Each batch will need to be padded to a fixed length and then converted to a torch tensor. 
 # Implement this padding and conversion to a tensor
 #Batch size
-batch_size = 250
 
+
+#Class for the neural network
+class Net(nn.Module):
+    def __init__(self): 
+        super().__init__()
+        self.embedding = nn.Embedding(100000, 300)
+        self.fc1 = nn.Linear(300,300)
+        self.fc2 = nn.Linear(300,2)
+    def forward(self,x): #algorithm for the forward propagation
+        x = self.embedding(x)
+        x = F.relu(x)
+        x,_ = torch.max(x,1)
+        x = self.fc2(x)
+        return x
+
+
+#Setting hyperparameters
+num_epochs = 5
+learning_rate = 0.001
+batch_size = 50
+batch_iter = 400
 #Counters
 k = 0
 j = batch_size
 
-
-
-#Splitting the xtrain into batches.
-matrix = []  
-for i in range(80):
-    matrix.append(x_train[k:j])
-    k = j
-    j = j + batch_size  
-#Splitting labels into batches
+#Splitting the labels into batches
 labels = []
 k = 0
 j = batch_size
-for i in range(80):
+for i in range(batch_iter):
     labels.append(y_train[k:j])  
     k = j
     j = j+batch_size  
+
+
+
+#Padding xtrain
+xtrain = x_train
+max_length =len(xtrain[-1])
+for i in xtrain:
+    while len(i)<max_length:
+        i.append(0)
+
+#Data Inputs
+xtrain = torch.tensor(xtrain, dtype = torch.long)
+trainset = torch.utils.data.DataLoader(xtrain, batch_size)
+labels = torch.tensor(labels, dtype = torch.long)
+
+#Initialize network, loss and optimizer
+NeuralNet = Net()
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.Adam(NeuralNet.parameters(), lr=0.001)
+
+
+#Epochs and baches
+vector = []
+for epoch in range(num_epochs):
+    count = 0
+    for i in trainset:
+        NeuralNet.zero_grad() #set gradients to zero
+        myNet = NeuralNet(i)#run forward
+        loss = criterion(myNet, labels[count])#calculating loss
+        print(loss)
+        vector.append(loss)
+        count += 1
+        loss.backward() #backward process
+        optimizer.step() #iptimizer
+  
+#visualizing data  
+plt.plot(vector) 
+plt.show()
+    
+    
     
 
-
-maxLength = 0
-#Looping the matrix.
-for i in matrix:
-    #Getting the highest value from each value.
-    current_length = max(len(x) for x in i)
-    if current_length > maxLength:
-        maxLength = current_length
-
-#adding padding to each element of the list through a nested loop.
-for i in matrix:
-    for j in i:
-        while len(j) < maxLength:
-            j.append(0)
-
-#Embeddong process and initializing xtrain e ytrain(labels)
-embedding = nn.Embedding(99430, 300)
-b1 = torch.tensor(matrix[0], dtype = torch.long)
-labels = torch.tensor(labels[0], dtype =torch.long)
-b = embedding(b1)
-
-
-#deleting variables from memory
-del b1
-del maxLength
-gc.collect()
-
-
-#First linear layer
-linear1 = nn.Linear(300,300)
-output1 = linear1(b)
-
-#ReLU
-relu = nn.ReLU()
-output2 = relu(output1)
-
-#Applying torchmax to reduce dimensionality
-output3, _  = torch.max(output2, 1)
-
-
-#Project down number of classes
-linear3 = nn.Linear(300,2)
-output4 = linear3(output3)
-
-#getting predictions
-predictions = torch.argmax(output4,1)
-accuracy = torch.sum(predictions == labels[0])/batch_size
-print(accuracy)
 
 
 
