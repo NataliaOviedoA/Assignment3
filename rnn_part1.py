@@ -99,10 +99,14 @@ class Net(nn.Module):
         x,_ = torch.max(x,1)
         x = self.fc2(x)
         return x
+    
+def accuracy(x,y):
+    preds = torch.argmax(x,1)
+    return (torch.sum(preds == y)/len(y)).item()
 
 
 #Setting hyperparameters
-num_epochs = 5
+num_epochs = 1
 learning_rate = 0.001
 batch_size = 50
 batch_iter = 400
@@ -143,18 +147,19 @@ optimizer = optim.Adam(NeuralNet.parameters(), lr=0.001)
 vector = []
 for epoch in range(num_epochs):
     count = 0
+    
     for i in trainset:
         NeuralNet.zero_grad() #set gradients to zero
         myNet = NeuralNet(i)#run forward
         loss = criterion(myNet, labels[count])#calculating loss
-        print(loss)
-        vector.append(loss)
+        print(accuracy(myNet,labels[count]))
+        vector.append(accuracy(myNet,labels[count]))
         count += 1
         loss.backward() #backward process
         optimizer.step() #iptimizer
-  
-#visualizing data  
-plt.plot(vector) 
+        
+
+plt.plot(vector)
 plt.show()
     
     
