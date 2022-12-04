@@ -4,6 +4,7 @@ import numpy as np
 import torch.nn.functional as F
 import load_dataset as data
 import torch.optim as optim
+from torch.autograd import Variable 
 
 (x_train, y_train), (x_val, y_val), (i2w, w2i), numcls = data.load_imdb(final=False)
 
@@ -13,15 +14,23 @@ class Net(nn.Module):
         super().__init__()
         self.embedding = nn.Embedding(100000, 300)
         self.rnn = nn.RNN(input_size, hidden_size, n_layers)
+        self.lstm = nn.LSTM(input_size=hidden_size, hidden_size=hidden_size,
+                          num_layers=n_layers) #lstm
         self.fc1 = nn.Linear(hidden_size, input_size)
         self.fc2 = nn.Linear(hidden_size,2)
-        self.hidden = None
+        self.num_layers = n_layers
+        self.input_size = input_size
+        self.hidden_size = hidden_size
     def forward(self,x, hidden): #algorithm for the forward propagation
         x = self.embedding(x)
         x = self.fc1(x)
         x = F.relu(x)
         x, hidden = self.rnn(x, hidden)
-        x,_ = torch.max(x,1)
+        h_0 = Variable(torch.zeros(self.num_layers, x.size(1), self.hidden_size)) #hidden state
+        c_0 = Variable(torch.zeros(self.num_layers, x.size(1), self.hidden_size)) #internal state
+        # Propagate input through LSTM
+        output, (hn, cn) = self.lstm(x, (h_0, c_0)) #lstm with input, hidden, and internal state
+        x,_ = torch.max(output,1)
         x = self.fc2(x)
         return x
     
@@ -32,7 +41,7 @@ def accuracy(x,y):
 
 #Setting hyperparameters
 input_size = 1254
-n_layers = 2
+n_layers = 1
 hidden_size = 300
 num_epochs = 3
 learning_rate = 0.001
