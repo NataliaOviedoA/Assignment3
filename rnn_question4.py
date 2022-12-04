@@ -7,41 +7,20 @@ import torch.optim as optim
 
 (x_train, y_train), (x_val, y_val), (i2w, w2i), numcls = data.load_imdb(final=False)
 
-# class for elman nn
-class Elman(nn.Module):
-    def __init__(self, insize=300, outsize=300, hsize=300):
-        super().__init__()
-        self.lin1 = nn.Linear(insize + hsize , hsize)
-        self.lin2 = nn.Linear(insize, outsize)
-
-    def forward(self, x, hidden=None):
-        b, t, e = x.size()
-
-        if hidden is None:
-            hidden = torch.zeros(b, e, dtype=torch.float)
-
-        outs = []
-        for i in range(t):
-            inp = torch.cat([x[:, i, :], hidden], dim=1)
-            hidden = torch.sigmoid(self.lin1(inp))
-            out = self.lin2(hidden)
-            outs.append(out[:, None, :])
-        
-        return torch.cat(outs, dim=1), hidden
-
 #Class for the neural network
 class Net(nn.Module):
-    def __init__(self): 
+    def __init__(self, input_size, hidden_size, n_layers): 
         super().__init__()
         self.embedding = nn.Embedding(100000, 300)
-        self.fc1 = nn.Linear(300,300)
-        self.fc2 = nn.Linear(300,2)
+        self.rnn = nn.RNN(input_size, hidden_size, n_layers)
+        self.fc1 = nn.Linear(hidden_size, input_size)
+        self.fc2 = nn.Linear(hidden_size,2)
         self.hidden = None
-    def forward(self,x): #algorithm for the forward propagation
+    def forward(self,x, hidden): #algorithm for the forward propagation
         x = self.embedding(x)
         x = self.fc1(x)
         x = F.relu(x)
-        x, hidden = ElmanNet.forward(x)
+        x, hidden = self.rnn(x, hidden)
         x,_ = torch.max(x,1)
         x = self.fc2(x)
         return x
@@ -52,6 +31,9 @@ def accuracy(x,y):
 
 
 #Setting hyperparameters
+input_size = 1254
+n_layers = 2
+hidden_size = 300
 num_epochs = 3
 learning_rate = 0.001
 batch_size = 30
@@ -83,8 +65,7 @@ trainset = torch.utils.data.DataLoader(xtrain, batch_size)
 labels = torch.tensor(labels, dtype = torch.long)
 
 #Initialize network, loss and optimizer
-NeuralNet = Net()
-ElmanNet = Elman()
+NeuralNet = Net(input_size, hidden_size, n_layers)
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(NeuralNet.parameters(), lr=0.001)
 
@@ -96,7 +77,7 @@ for epoch in range(num_epochs):
     
     for i in trainset:
         NeuralNet.zero_grad() #set gradients to zero
-        myNet = NeuralNet(i)#run forward
+        myNet = NeuralNet(i, None)#run forward
         loss = criterion(myNet, labels[count])#calculating loss
         print(accuracy(myNet,labels[count]))   
         vector.append(accuracy(myNet,labels[count]))
