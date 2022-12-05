@@ -4,6 +4,7 @@ import numpy as np
 import torch.nn.functional as F
 import load_dataset as data
 import torch.optim as optim
+import matplotlib.pyplot as plt
 
 (x_train, y_train), (x_val, y_val), (i2w, w2i), numcls = data.load_imdb(final=False)
 
@@ -52,10 +53,14 @@ def accuracy(x,y):
 
 
 #Setting hyperparameters
-num_epochs = 3
+num_epochs = 2
 learning_rate = 0.001
-batch_size = 30
-batch_iter = 500
+batch_size = 50
+batch_iter = 300
+total = batch_size*batch_iter
+Vbatch_size = 50
+Vbatch_iter = 100
+Vtotal = Vbatch_size * Vbatch_iter
 #Counters
 k = 0
 j = batch_size
@@ -69,18 +74,39 @@ for i in range(batch_iter):
     k = j
     j = j+batch_size  
 
+#splitting y_val labels into batches
+validlabels = []
+k = 0
+j = Vbatch_size
+for i in range(Vbatch_iter):
+    validlabels.append(y_val[k:j])  
+    k = j
+    j = j+batch_size 
+
 
 #Padding xtrain
-xtrain = x_train[0:15000]
+xtrain = x_train[0:total]
 max_length =len(xtrain[-1])
 for i in xtrain:
     while len(i)<max_length:
         i.append(0)
 
-#Data Inputs
+#Padding xvalue
+vtrain = x_val[0:Vtotal]
+max_length =len(vtrain[-1])
+for i in vtrain:
+    while len(i)<max_length:
+        i.append(0)
+
+#Data Inputs for training
 xtrain = torch.tensor(xtrain, dtype = torch.long)
 trainset = torch.utils.data.DataLoader(xtrain, batch_size)
 labels = torch.tensor(labels, dtype = torch.long)
+
+#Data Inputs for validation
+x_valtrain = torch.tensor(vtrain, dtype = torch.long)
+validset = torch.utils.data.DataLoader(x_valtrain,Vbatch_size)
+validlabels = torch.tensor(validlabels, dtype = torch.long)
 
 #Initialize network, loss and optimizer
 NeuralNet = Net()
@@ -90,18 +116,48 @@ optimizer = optim.Adam(NeuralNet.parameters(), lr=0.001)
 
 
 #Epochs and baches
-vector = []
+vector = [0]
+valid_vector = [0]
 for epoch in range(num_epochs):
     count = 0
-    
+    acc = 0
+    loss_mt = 0
     for i in trainset:
         NeuralNet.zero_grad() #set gradients to zero
         myNet = NeuralNet(i)#run forward
         loss = criterion(myNet, labels[count])#calculating loss
-        print(accuracy(myNet,labels[count]))   
-        vector.append(accuracy(myNet,labels[count]))
+        print(accuracy(myNet,labels[count]))
+        acc += accuracy(myNet,labels[count])
+        # loss_mt += loss.item()
+        # print(loss.item())
         count += 1
         loss.backward() #backward process
-        optimizer.step() #iptimizer  
-    print('This is the epoch') 
+        optimizer.step() #iptimizer
+    final_acc = acc/batch_iter
+    # vector.append(final_acc)
+    vector.append(final_acc)
+    
 
+    NeuralNet.eval()
+    count = 0
+    loss_mv = 0
+    acc2 = 0
+    for i in validset:
+        myNet = NeuralNet(i) 
+        loss = criterion(myNet, validlabels[count])
+        #loss_mv +=loss.item()
+        acc2 += accuracy(myNet,validlabels[count])
+        print("Acc = {0}".format(accuracy(myNet,validlabels[count])))
+        count += 1
+        
+    valid_vector.append(acc2/Vbatch_iter)
+
+
+plt.plot(vector, label = "Training")
+plt.plot(valid_vector, color = 'r', label = "Validation")
+plt.title("Accuracy Training/Validation")
+plt.ylabel('Accuracy')
+plt.xlabel("Epochs")
+plt.legend()
+plt.show()
+    
