@@ -14,21 +14,19 @@ class Net(nn.Module):
     def __init__(self, input_size, hidden_size, n_layers): 
         super().__init__()
         self.embedding = nn.Embedding(100000, 300)
-        self.rnn = nn.RNN(input_size, hidden_size, n_layers)
-        self.lstm = nn.LSTM(input_size=hidden_size, hidden_size=hidden_size,
-                          num_layers=n_layers) #lstm
+        self.lstm = nn.LSTM(input_size=input_size, hidden_size=hidden_size,
+                          num_layers=n_layers, batch_first=True) #lstm
         self.fc1 = nn.Linear(hidden_size, input_size)
         self.fc2 = nn.Linear(hidden_size,2)
         self.num_layers = n_layers
         self.input_size = input_size
         self.hidden_size = hidden_size
-    def forward(self,x, hidden): #algorithm for the forward propagation
+    def forward(self,x): #algorithm for the forward propagation
         x = self.embedding(x)
         x = self.fc1(x)
         x = F.relu(x)
-        x, hidden = self.rnn(x, hidden)
-        h_0 = Variable(torch.zeros(self.num_layers, x.size(1), self.hidden_size)) #hidden state
-        c_0 = Variable(torch.zeros(self.num_layers, x.size(1), self.hidden_size)) #internal state
+        h_0 = Variable(torch.zeros(self.num_layers, x.size(0), self.hidden_size)) #hidden state
+        c_0 = Variable(torch.zeros(self.num_layers, x.size(0), self.hidden_size)) #internal state
         # Propagate input through LSTM
         output, (hn, cn) = self.lstm(x, (h_0, c_0)) #lstm with input, hidden, and internal state
         x,_ = torch.max(output,1)
@@ -42,9 +40,9 @@ def accuracy(x,y):
 
 #Setting hyperparameters
 input_size = 1254
-n_layers = 1
+n_layers = 2
 hidden_size = 300
-num_epochs = 2
+num_epochs = 3
 learning_rate = 0.001
 batch_size = 50
 batch_iter = 300
@@ -113,7 +111,7 @@ for epoch in range(num_epochs):
     loss_mt = 0
     for i in trainset:
         NeuralNet.zero_grad() #set gradients to zero
-        myNet = NeuralNet(i, None)#run forward
+        myNet = NeuralNet(i)#run forward
         loss = criterion(myNet, labels[count])#calculating loss
         print(accuracy(myNet,labels[count]))
         acc += accuracy(myNet,labels[count])
@@ -130,7 +128,7 @@ count = 0
 loss_mv = 0
 acc2 = 0
 for i in validset:
-    myNet = NeuralNet(i, None) 
+    myNet = NeuralNet(i) 
     loss = criterion(myNet, validlabels[count])
     #loss_mv +=loss.item()
     acc2 += accuracy(myNet,validlabels[count])
@@ -140,14 +138,13 @@ for i in validset:
 valid_vector.append(acc2/Tbatch_iter)
 print(valid_vector)
 
-'''
+
 plt.plot(vector, label = "Training")
-plt.plot(valid_vector, color = 'r', label = "Validation")
-plt.title("Accuracy Training/Validation")
+plt.title("Accuracy Training")
 plt.ylabel('Accuracy')
 plt.xlabel("Epochs")
 plt.legend()
 plt.show()
-'''    
+
 
 
