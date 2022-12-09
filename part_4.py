@@ -80,11 +80,12 @@ hidden_dim = nn.Linear(hidden_size, vocab)
 #Uses nn.LogSoftmax() and nn.NLLoss() in one single class; extra softmax is not needed
 criterion = torch.nn.CrossEntropyLoss()
 optimizer = torch.optim.SGD(layer_LSTM.parameters(), lr=learning_rate)
-
+seq = [w2i['.start'], w2i['('], w2i['('], w2i[')']]
+print(seq)
 for i in range(epochs):
     running_loss = 0.0
     # shuffle the list of batches
-    matrix = numpy.array(matrix) 
+    matrix = numpy.array(matrix)
     indices = numpy.random.permutation(150)
     matrix = matrix[indices]
     matrix = matrix.tolist()
