@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 (x_train, y_train), (x_val, y_val), (i2w, w2i), numcls = data.load_imdb(final=False)
 
 # class for elman nn
+# Finish the model based on the structure given in assignment part 3
 class Elman(nn.Module):
     def __init__(self, insize=300, outsize=300, hsize=300):
         super().__init__()
