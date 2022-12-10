@@ -1,0 +1,1102 @@
+[1,     1] loss: 9.6898382812
+[1,   251] loss: 0.0411170044
+[1,   501] loss: 0.0389096161
+[1,   751] loss: 0.0322432434
+[1,  1001] loss: 0.0245363968
+[1,  1251] loss: 0.0215259415
+[1,  1501] loss: 0.0671930969
+[1,  1751] loss: 0.1889233887
+[1,  2001] loss: 0.1102021118
+[1,  2251] loss: 0.0261912537
+C:\Users\rromy\OneDrive\Documenten\master\deep_learning\Assignment3\part4_5.py:176: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  seq = torch.tensor(seq , dtype=torch.long)
+The character that is sampled s
+The character that is sampled a
+The character that is sampled b
+The character that is sampled c
+The character that is sampled !
+The character that is sampled s
+The character that is sampled s
+The character that is sampled s
+The character that is sampled s
+The character that is sampled s
+the sequence is
+.startssabc!sssss
+[2,     1] loss: 0.0753525696
+[2,   251] loss: 0.0281813324
+[2,   501] loss: 0.1475345215
+[2,   751] loss: 0.0350481476
+[2,  1001] loss: 0.0678949463
+[2,  1251] loss: 0.0668888794
+[2,  1501] loss: 0.0913061096
+[2,  1751] loss: 0.0347994965
+[2,  2001] loss: 0.0313990021
+[2,  2251] loss: 0.0600629761
+The character that is sampled s
+The character that is sampled a
+The character that is sampled b
+The character that is sampled c
+The character that is sampled !
+The character that is sampled a
+The character that is sampled b
+The character that is sampled c
+The character that is sampled !
+The character that is sampled a
+the sequence is
+.startssabc!abc!a
+[3,     1] loss: 0.0318031586
+[3,   251] loss: 0.0887031555
+[3,   501] loss: 0.2467632568
+[3,   751] loss: 0.0333262451
+[3,  1001] loss: 0.0282097168
+[3,  1251] loss: 0.0594157227
+[3,  1501] loss: 0.0662464172
+[3,  1751] loss: 0.1789825317
+[3,  2001] loss: 0.1193941895
+[3,  2251] loss: 0.0664285645
+The character that is sampled s
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled k
+the sequence is
+.startssklm!klm!k
+[4,     1] loss: 0.0663604187
+[4,   251] loss: 0.0712699646
+[4,   501] loss: 0.0621131775
+[4,   751] loss: 0.0349459717
+[4,  1001] loss: 0.0333519470
+[4,  1251] loss: 0.0381348114
+[4,  1501] loss: 0.2321613770
+[4,  1751] loss: 0.3439424561
+[4,  2001] loss: 0.1869456787
+[4,  2251] loss: 0.0352163116
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled k
+The character that is sampled l
+the sequence is
+.startsklm!klm!kl
+[5,     1] loss: 0.1008349182
+[5,   251] loss: 0.0340136230
+[5,   501] loss: 0.0622389709
+[5,   751] loss: 0.0716259399
+[5,  1001] loss: 0.0806193909
+[5,  1251] loss: 0.0583260803
+[5,  1501] loss: 0.0713481689
+[5,  1751] loss: 0.0375297333
+[5,  2001] loss: 0.0837353943
+[5,  2251] loss: 0.0682212158
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled k
+The character that is sampled l
+the sequence is
+.startsklm!klm!kl
+[6,     1] loss: 0.0790744324
+[6,   251] loss: 0.0713726685
+[6,   501] loss: 0.0874681274
+[6,   751] loss: 0.0376652618
+[6,  1001] loss: 0.0603959900
+[6,  1251] loss: 0.0377590363
+[6,  1501] loss: 0.0364637146
+[6,  1751] loss: 0.0969833252
+[6,  2001] loss: 0.0378399353
+[6,  2251] loss: 0.0435289734
+The character that is sampled s
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled k
+the sequence is
+.startssklm!klm!k
+[7,     1] loss: 0.0612298523
+[7,   251] loss: 0.0406412720
+[7,   501] loss: 0.1774367554
+[7,   751] loss: 0.0315168732
+[7,  1001] loss: 0.0323691803
+[7,  1251] loss: 0.0613672913
+[7,  1501] loss: 0.2017025513
+[7,  1751] loss: 0.0665927124
+[7,  2001] loss: 0.0433572632
+[7,  2251] loss: 0.0410348541
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled u
+The character that is sampled v
+the sequence is
+.startsuvw!uvw!uv
+[8,     1] loss: 0.0489333618
+[8,   251] loss: 0.0562537476
+[8,   501] loss: 0.0540915649
+[8,   751] loss: 0.0723877136
+[8,  1001] loss: 0.0693772827
+[8,  1251] loss: 0.0537605164
+[8,  1501] loss: 0.0715546204
+[8,  1751] loss: 0.0689004150
+[8,  2001] loss: 0.0721188171
+[8,  2251] loss: 0.0445458099
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled k
+The character that is sampled l
+the sequence is
+.startsklm!klm!kl
+[9,     1] loss: 0.2448314941
+[9,   251] loss: 0.0544156616
+[9,   501] loss: 0.1045020264
+[9,   751] loss: 0.1083166992
+[9,  1001] loss: 0.0401119934
+[9,  1251] loss: 0.0796826843
+[9,  1501] loss: 0.0541541870
+[9,  1751] loss: 0.1190020752
+[9,  2001] loss: 0.1005457764
+[9,  2251] loss: 0.0774376038
+The character that is sampled a
+The character that is sampled b
+The character that is sampled c
+The character that is sampled !
+The character that is sampled s
+The character that is sampled s
+The character that is sampled s
+The character that is sampled s
+The character that is sampled a
+The character that is sampled b
+the sequence is
+.startsabc!ssssab
+[10,     1] loss: 0.0547269287
+[10,   251] loss: 0.1425246826
+[10,   501] loss: 0.0557883423
+[10,   751] loss: 0.1257345947
+[10,  1001] loss: 0.1161367188
+[10,  1251] loss: 0.0651223755
+[10,  1501] loss: 0.0535369873
+[10,  1751] loss: 0.1377880127
+[10,  2001] loss: 0.0433553436
+[10,  2251] loss: 0.0604549377
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled s
+The character that is sampled s
+The character that is sampled s
+The character that is sampled s
+The character that is sampled s
+The character that is sampled k
+the sequence is
+.startsklm!sssssk
+[11,     1] loss: 0.0568734497
+[11,   251] loss: 0.0667319458
+[11,   501] loss: 0.0410238495
+[11,   751] loss: 0.1211952393
+[11,  1001] loss: 0.0397967346
+[11,  1251] loss: 0.0441221405
+[11,  1501] loss: 0.0407316284
+[11,  1751] loss: 0.0576661194
+[11,  2001] loss: 0.2534161133
+[11,  2251] loss: 0.0689933594
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled k
+The character that is sampled l
+the sequence is
+.startsklm!klm!kl
+[12,     1] loss: 0.0573546021
+[12,   251] loss: 0.0550546631
+[12,   501] loss: 0.0968378479
+[12,   751] loss: 0.2077217285
+[12,  1001] loss: 0.0412478729
+[12,  1251] loss: 0.0462210815
+[12,  1501] loss: 0.1434735352
+[12,  1751] loss: 0.1629923828
+[12,  2001] loss: 0.0626423279
+[12,  2251] loss: 0.0724675842
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled k
+The character that is sampled l
+the sequence is
+.startsklm!klm!kl
+[13,     1] loss: 0.0610433838
+[13,   251] loss: 0.0539725464
+[13,   501] loss: 0.0703059143
+[13,   751] loss: 0.1159438843
+[13,  1001] loss: 0.0441221466
+[13,  1251] loss: 0.0430981201
+[13,  1501] loss: 0.0679338989
+[13,  1751] loss: 0.0740649719
+[13,  2001] loss: 0.1315901123
+[13,  2251] loss: 0.0552565308
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled u
+The character that is sampled v
+the sequence is
+.startsuvw!uvw!uv
+[14,     1] loss: 0.0612027527
+[14,   251] loss: 0.0850761108
+[14,   501] loss: 0.0698575500
+[14,   751] loss: 0.0535000244
+[14,  1001] loss: 0.0537325256
+[14,  1251] loss: 0.0823022339
+[14,  1501] loss: 0.0372689362
+[14,  1751] loss: 0.0373563751
+[14,  2001] loss: 0.1992827515
+[14,  2251] loss: 0.0654305725
+The character that is sampled a
+The character that is sampled b
+The character that is sampled c
+The character that is sampled !
+The character that is sampled s
+The character that is sampled s
+The character that is sampled a
+The character that is sampled b
+The character that is sampled c
+The character that is sampled !
+the sequence is
+.startsabc!ssabc!
+[15,     1] loss: 0.1470522949
+[15,   251] loss: 0.0368307068
+[15,   501] loss: 0.0382733948
+[15,   751] loss: 0.1549894653
+[15,  1001] loss: 0.0667368713
+[15,  1251] loss: 0.0444235321
+[15,  1501] loss: 0.0560895691
+[15,  1751] loss: 0.0778921143
+[15,  2001] loss: 0.1758728271
+[15,  2251] loss: 0.2740072998
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled u
+The character that is sampled v
+the sequence is
+.startsuvw!uvw!uv
+[16,     1] loss: 0.0516872559
+[16,   251] loss: 0.1231450317
+[16,   501] loss: 0.0461871033
+[16,   751] loss: 0.0687187317
+[16,  1001] loss: 0.0549201660
+[16,  1251] loss: 0.0693850586
+[16,  1501] loss: 0.0411567657
+[16,  1751] loss: 0.0660415222
+[16,  2001] loss: 0.0920272278
+[16,  2251] loss: 0.1640919189
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled s
+The character that is sampled a
+the sequence is
+.startsklm!klm!sa
+[17,     1] loss: 0.0522813110
+[17,   251] loss: 0.1738399292
+[17,   501] loss: 0.0527821411
+[17,   751] loss: 0.0672457275
+[17,  1001] loss: 0.0700051697
+[17,  1251] loss: 0.0435965881
+[17,  1501] loss: 0.0636263367
+[17,  1751] loss: 0.1831791748
+[17,  2001] loss: 0.0636410522
+[17,  2251] loss: 0.2838424561
+The character that is sampled a
+The character that is sampled b
+The character that is sampled c
+The character that is sampled !
+The character that is sampled s
+The character that is sampled a
+The character that is sampled b
+The character that is sampled c
+The character that is sampled !
+The character that is sampled s
+the sequence is
+.startsabc!sabc!s
+[18,     1] loss: 0.0927585632
+[18,   251] loss: 0.0707395508
+[18,   501] loss: 0.0656849487
+[18,   751] loss: 0.0487873993
+[18,  1001] loss: 0.2529908691
+[18,  1251] loss: 0.0687935730
+[18,  1501] loss: 0.2167490479
+[18,  1751] loss: 0.0707559875
+[18,  2001] loss: 0.1582325684
+[18,  2251] loss: 0.0382005981
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled k
+The character that is sampled l
+the sequence is
+.startsklm!klm!kl
+[19,     1] loss: 0.0497063629
+[19,   251] loss: 0.1194597778
+[19,   501] loss: 0.0627532715
+[19,   751] loss: 0.1273260498
+[19,  1001] loss: 0.0543055176
+[19,  1251] loss: 0.0638118896
+[19,  1501] loss: 0.0682778259
+[19,  1751] loss: 0.1605517090
+[19,  2001] loss: 0.0613419556
+[19,  2251] loss: 0.0604758545
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled u
+The character that is sampled v
+the sequence is
+.startsuvw!uvw!uv
+[20,     1] loss: 0.0533105530
+[20,   251] loss: 0.0617132446
+[20,   501] loss: 0.1691367676
+[20,   751] loss: 0.0441548920
+[20,  1001] loss: 0.0445004272
+[20,  1251] loss: 0.2167606934
+[20,  1501] loss: 0.0473772797
+[20,  1751] loss: 0.0630335754
+[20,  2001] loss: 0.0954420654
+[20,  2251] loss: 0.0417881195
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled u
+The character that is sampled v
+the sequence is
+.startsuvw!uvw!uv
+[21,     1] loss: 0.0929871399
+[21,   251] loss: 0.1245254272
+[21,   501] loss: 0.0528005798
+[21,   751] loss: 0.1067965942
+[21,  1001] loss: 0.0708394836
+[21,  1251] loss: 0.0708727661
+[21,  1501] loss: 0.0661500427
+[21,  1751] loss: 0.0726637573
+[21,  2001] loss: 0.0417870911
+[21,  2251] loss: 0.0684001953
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled s
+The character that is sampled a
+The character that is sampled b
+The character that is sampled c
+The character that is sampled !
+The character that is sampled s
+the sequence is
+.startsklm!sabc!s
+[22,     1] loss: 0.0576101196
+[22,   251] loss: 0.3594410889
+[22,   501] loss: 0.0485303162
+[22,   751] loss: 0.0456641724
+[22,  1001] loss: 0.0373841705
+[22,  1251] loss: 0.0660572449
+[22,  1501] loss: 0.0667060425
+[22,  1751] loss: 0.1773389771
+[22,  2001] loss: 0.0684930481
+[22,  2251] loss: 0.2057772949
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled k
+The character that is sampled l
+the sequence is
+.startsklm!klm!kl
+[23,     1] loss: 0.0530374512
+[23,   251] loss: 0.0609475220
+[23,   501] loss: 0.0994809082
+[23,   751] loss: 0.0662143188
+[23,  1001] loss: 0.0360682861
+[23,  1251] loss: 0.0707768127
+[23,  1501] loss: 0.0646981934
+[23,  1751] loss: 0.0669702332
+[23,  2001] loss: 0.0708981934
+[23,  2251] loss: 0.0914602173
+The character that is sampled a
+The character that is sampled b
+The character that is sampled c
+The character that is sampled !
+The character that is sampled a
+The character that is sampled b
+The character that is sampled c
+The character that is sampled !
+The character that is sampled a
+The character that is sampled b
+the sequence is
+.startsabc!abc!ab
+[24,     1] loss: 0.0507357361
+[24,   251] loss: 0.0637203247
+[24,   501] loss: 0.0892890808
+[24,   751] loss: 0.0726249268
+[24,  1001] loss: 0.0414396820
+[24,  1251] loss: 0.0384079926
+[24,  1501] loss: 0.0375154358
+[24,  1751] loss: 0.0414631500
+[24,  2001] loss: 0.0570121155
+[24,  2251] loss: 0.0688994019
+The character that is sampled a
+The character that is sampled b
+The character that is sampled c
+The character that is sampled !
+The character that is sampled s
+The character that is sampled s
+The character that is sampled s
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+the sequence is
+.startsabc!sssklm
+[25,     1] loss: 0.1479608887
+[25,   251] loss: 0.0422579041
+[25,   501] loss: 0.0605894775
+[25,   751] loss: 0.0630984314
+[25,  1001] loss: 0.0710946533
+[25,  1251] loss: 0.0408207123
+[25,  1501] loss: 0.0420013245
+[25,  1751] loss: 0.1211020752
+[25,  2001] loss: 0.0750896606
+[25,  2251] loss: 0.0653689819
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled k
+The character that is sampled l
+the sequence is
+.startsklm!klm!kl
+[26,     1] loss: 0.1725073975
+[26,   251] loss: 0.0416887268
+[26,   501] loss: 0.2431118652
+[26,   751] loss: 0.0715852783
+[26,  1001] loss: 0.0916785461
+[26,  1251] loss: 0.1062127197
+[26,  1501] loss: 0.0704275146
+[26,  1751] loss: 0.0966644104
+[26,  2001] loss: 0.0869310486
+[26,  2251] loss: 0.0545431152
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled u
+The character that is sampled v
+the sequence is
+.startsuvw!uvw!uv
+[27,     1] loss: 0.0605935120
+[27,   251] loss: 0.1092959595
+[27,   501] loss: 0.0651006958
+[27,   751] loss: 0.0521216492
+[27,  1001] loss: 0.0496958954
+[27,  1251] loss: 0.0668229126
+[27,  1501] loss: 0.0642503113
+[27,  1751] loss: 0.0684279724
+[27,  2001] loss: 0.0657611511
+[27,  2251] loss: 0.1285538818
+The character that is sampled a
+The character that is sampled b
+The character that is sampled c
+The character that is sampled !
+The character that is sampled s
+The character that is sampled a
+The character that is sampled b
+The character that is sampled c
+The character that is sampled !
+The character that is sampled a
+the sequence is
+.startsabc!sabc!a
+[28,     1] loss: 0.1168433472
+[28,   251] loss: 0.1057013428
+[28,   501] loss: 0.1601442993
+[28,   751] loss: 0.1233523437
+[28,  1001] loss: 0.0657443237
+[28,  1251] loss: 0.0638398804
+[28,  1501] loss: 0.0521866089
+[28,  1751] loss: 0.1373757324
+[28,  2001] loss: 0.0655767883
+[28,  2251] loss: 0.0440858521
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled s
+The character that is sampled s
+the sequence is
+.startsuvw!uvw!ss
+[29,     1] loss: 0.0501909241
+[29,   251] loss: 0.0662665039
+[29,   501] loss: 0.0710982971
+[29,   751] loss: 0.0397009827
+[29,  1001] loss: 0.0605544739
+[29,  1251] loss: 0.0515614685
+[29,  1501] loss: 0.0685075378
+[29,  1751] loss: 0.0535894226
+[29,  2001] loss: 0.0736573730
+[29,  2251] loss: 0.0414033508
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled s
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled s
+the sequence is
+.startsuvw!suvw!s
+[30,     1] loss: 0.0517002869
+[30,   251] loss: 0.0688890442
+[30,   501] loss: 0.0910897156
+[30,   751] loss: 0.1660623535
+[30,  1001] loss: 0.0539027222
+[30,  1251] loss: 0.1661282837
+[30,  1501] loss: 0.0694484741
+[30,  1751] loss: 0.0997845154
+[30,  2001] loss: 0.0406881287
+[30,  2251] loss: 0.0511974640
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled s
+The character that is sampled k
+the sequence is
+.startsklm!klm!sk
+[31,     1] loss: 0.0627508057
+[31,   251] loss: 0.0645107117
+[31,   501] loss: 0.2240433350
+[31,   751] loss: 0.0736492493
+[31,  1001] loss: 0.0402944305
+[31,  1251] loss: 0.0727096680
+[31,  1501] loss: 0.1628832275
+[31,  1751] loss: 0.1441609375
+[31,  2001] loss: 0.0731161682
+[31,  2251] loss: 0.0733311768
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled u
+The character that is sampled v
+the sequence is
+.startsuvw!uvw!uv
+[32,     1] loss: 0.1187577759
+[32,   251] loss: 0.1521175415
+[32,   501] loss: 0.0641886353
+[32,   751] loss: 0.2427718994
+[32,  1001] loss: 0.0418761841
+[32,  1251] loss: 0.0639145325
+[32,  1501] loss: 0.0378005402
+[32,  1751] loss: 0.0696025330
+[32,  2001] loss: 0.1333402710
+[32,  2251] loss: 0.0718753723
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled u
+The character that is sampled v
+the sequence is
+.startsuvw!uvw!uv
+[33,     1] loss: 0.1267592773
+[33,   251] loss: 0.0695422119
+[33,   501] loss: 0.0661937134
+[33,   751] loss: 0.0369594543
+[33,  1001] loss: 0.0394649811
+[33,  1251] loss: 0.0503035034
+[33,  1501] loss: 0.1754215332
+[33,  1751] loss: 0.0422017395
+[33,  2001] loss: 0.0865933105
+[33,  2251] loss: 0.0379155853
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled k
+The character that is sampled l
+the sequence is
+.startsklm!klm!kl
+[34,     1] loss: 0.0690782227
+[34,   251] loss: 0.1118328857
+[34,   501] loss: 0.0675829651
+[34,   751] loss: 0.1004482910
+[34,  1001] loss: 0.1216019653
+[34,  1251] loss: 0.0737185486
+[34,  1501] loss: 0.0638411438
+[34,  1751] loss: 0.0660030945
+[34,  2001] loss: 0.0403936371
+[34,  2251] loss: 0.0537497681
+The character that is sampled a
+The character that is sampled b
+The character that is sampled c
+The character that is sampled !
+The character that is sampled a
+The character that is sampled b
+The character that is sampled c
+The character that is sampled !
+The character that is sampled a
+The character that is sampled b
+the sequence is
+.startsabc!abc!ab
+[35,     1] loss: 0.2213713867
+[35,   251] loss: 0.1527308960
+[35,   501] loss: 0.0503699677
+[35,   751] loss: 0.0972517456
+[35,  1001] loss: 0.0941547302
+[35,  1251] loss: 0.0408412933
+[35,  1501] loss: 0.0446959290
+[35,  1751] loss: 0.0840791016
+[35,  2001] loss: 0.0528108093
+[35,  2251] loss: 0.0931759766
+The character that is sampled s
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled u
+the sequence is
+.startssuvw!uvw!u
+[36,     1] loss: 0.0718580383
+[36,   251] loss: 0.1280119751
+[36,   501] loss: 0.0551148804
+[36,   751] loss: 0.0382920227
+[36,  1001] loss: 0.0396295654
+[36,  1251] loss: 0.0627840637
+[36,  1501] loss: 0.0360573181
+[36,  1751] loss: 0.0364887817
+[36,  2001] loss: 0.1317308472
+[36,  2251] loss: 0.0724411926
+The character that is sampled a
+The character that is sampled b
+The character that is sampled c
+The character that is sampled !
+The character that is sampled a
+The character that is sampled b
+The character that is sampled c
+The character that is sampled !
+The character that is sampled s
+The character that is sampled s
+the sequence is
+.startsabc!abc!ss
+[37,     1] loss: 0.0653365601
+[37,   251] loss: 0.0702617859
+[37,   501] loss: 0.0368189941
+[37,   751] loss: 0.0678972778
+[37,  1001] loss: 0.1120112061
+[37,  1251] loss: 0.0379756012
+[37,  1501] loss: 0.0675393555
+[37,  1751] loss: 0.0361262939
+[37,  2001] loss: 0.0930572815
+[37,  2251] loss: 0.1087931396
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled s
+The character that is sampled u
+the sequence is
+.startsuvw!uvw!su
+[38,     1] loss: 0.1007586243
+[38,   251] loss: 0.1770198242
+[38,   501] loss: 0.0398870636
+[38,   751] loss: 0.0385052856
+[38,  1001] loss: 0.0341041687
+[38,  1251] loss: 0.0958084473
+[38,  1501] loss: 0.0396621429
+[38,  1751] loss: 0.0602979004
+[38,  2001] loss: 0.0639188171
+[38,  2251] loss: 0.0424137695
+The character that is sampled a
+The character that is sampled b
+The character that is sampled c
+The character that is sampled !
+The character that is sampled a
+The character that is sampled b
+The character that is sampled c
+The character that is sampled !
+The character that is sampled s
+The character that is sampled k
+the sequence is
+.startsabc!abc!sk
+[39,     1] loss: 0.0552011536
+[39,   251] loss: 0.0649661255
+[39,   501] loss: 0.0336096252
+[39,   751] loss: 0.1539154297
+[39,  1001] loss: 0.0592339844
+[39,  1251] loss: 0.1077023315
+[39,  1501] loss: 0.1401930542
+[39,  1751] loss: 0.0559710083
+[39,  2001] loss: 0.0691311584
+[39,  2251] loss: 0.0621778503
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled s
+The character that is sampled a
+The character that is sampled b
+The character that is sampled c
+The character that is sampled !
+The character that is sampled s
+the sequence is
+.startsklm!sabc!s
+[40,     1] loss: 0.0683599915
+[40,   251] loss: 0.0397909485
+[40,   501] loss: 0.1310512207
+[40,   751] loss: 0.0412969879
+[40,  1001] loss: 0.0584077271
+[40,  1251] loss: 0.0621701416
+[40,  1501] loss: 0.1053771851
+[40,  1751] loss: 0.0378230286
+[40,  2001] loss: 0.1457369629
+[40,  2251] loss: 0.0646680115
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled s
+The character that is sampled s
+the sequence is
+.startsuvw!uvw!ss
+[41,     1] loss: 0.0571344116
+[41,   251] loss: 0.0594892944
+[41,   501] loss: 0.0692649475
+[41,   751] loss: 0.0604807129
+[41,  1001] loss: 0.0585108948
+[41,  1251] loss: 0.1766748657
+[41,  1501] loss: 0.0393700378
+[41,  1751] loss: 0.1381602051
+[41,  2001] loss: 0.1374498901
+[41,  2251] loss: 0.0587393433
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled s
+The character that is sampled s
+The character that is sampled s
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+the sequence is
+.startsklm!sssuvw
+[42,     1] loss: 0.0375639435
+[42,   251] loss: 0.1359552246
+[42,   501] loss: 0.0567353149
+[42,   751] loss: 0.0576413513
+[42,  1001] loss: 0.0718293335
+[42,  1251] loss: 0.0402299622
+[42,  1501] loss: 0.0387515259
+[42,  1751] loss: 0.1155614380
+[42,  2001] loss: 0.0690912903
+[42,  2251] loss: 0.0702539978
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled s
+The character that is sampled s
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+the sequence is
+.startsklm!ssklm!
+[43,     1] loss: 0.0614292542
+[43,   251] loss: 0.0536752686
+[43,   501] loss: 0.1240365479
+[43,   751] loss: 0.0482150238
+[43,  1001] loss: 0.0414784851
+[43,  1251] loss: 0.0617453369
+[43,  1501] loss: 0.0760552429
+[43,  1751] loss: 0.0388080566
+[43,  2001] loss: 0.0365816254
+[43,  2251] loss: 0.1265642212
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled s
+The character that is sampled u
+the sequence is
+.startsuvw!uvw!su
+[44,     1] loss: 0.0582897156
+[44,   251] loss: 0.0691619385
+[44,   501] loss: 0.0554703613
+[44,   751] loss: 0.0649843201
+[44,  1001] loss: 0.1302912354
+[44,  1251] loss: 0.0621217896
+[44,  1501] loss: 0.1102955322
+[44,  1751] loss: 0.0443989227
+[44,  2001] loss: 0.0609858154
+[44,  2251] loss: 0.0355002777
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled s
+The character that is sampled s
+The character that is sampled s
+The character that is sampled a
+The character that is sampled b
+The character that is sampled c
+the sequence is
+.startsklm!sssabc
+[45,     1] loss: 0.1072845459
+[45,   251] loss: 0.0393134735
+[45,   501] loss: 0.0925250122
+[45,   751] loss: 0.0660281372
+[45,  1001] loss: 0.0439832642
+[45,  1251] loss: 0.0404333618
+[45,  1501] loss: 0.0400270752
+[45,  1751] loss: 0.0901532349
+[45,  2001] loss: 0.0644716614
+[45,  2251] loss: 0.0364207397
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled s
+The character that is sampled a
+The character that is sampled b
+The character that is sampled c
+The character that is sampled !
+The character that is sampled a
+the sequence is
+.startsklm!sabc!a
+[46,     1] loss: 0.0922983765
+[46,   251] loss: 0.0897252563
+[46,   501] loss: 0.0907622070
+[46,   751] loss: 0.0685633179
+[46,  1001] loss: 0.1546570679
+[46,  1251] loss: 0.0362013733
+[46,  1501] loss: 0.1031455566
+[46,  1751] loss: 0.0358978149
+[46,  2001] loss: 0.0391366882
+[46,  2251] loss: 0.0662116089
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled u
+The character that is sampled v
+the sequence is
+.startsuvw!uvw!uv
+[47,     1] loss: 0.1802394409
+[47,   251] loss: 0.0849119385
+[47,   501] loss: 0.0920922302
+[47,   751] loss: 0.0665836670
+[47,  1001] loss: 0.0709192017
+[47,  1251] loss: 0.0702778015
+[47,  1501] loss: 0.0381820709
+[47,  1751] loss: 0.0362064087
+[47,  2001] loss: 0.0997595459
+[47,  2251] loss: 0.0655291504
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled u
+The character that is sampled v
+The character that is sampled w
+The character that is sampled !
+The character that is sampled u
+The character that is sampled v
+the sequence is
+.startsuvw!uvw!uv
+[48,     1] loss: 0.0614097290
+[48,   251] loss: 0.0564739868
+[48,   501] loss: 0.0575587463
+[48,   751] loss: 0.0429425720
+[48,  1001] loss: 0.2420500488
+[48,  1251] loss: 0.0336955994
+[48,  1501] loss: 0.0403983215
+[48,  1751] loss: 0.1268042847
+[48,  2001] loss: 0.0370787994
+[48,  2251] loss: 0.0634629395
+The character that is sampled k
+The character that is sampled l
+The character that is sampled m
+The character that is sampled !
+The character that is sampled s
+The character that is sampled s
+The character that is sampled a
+The character that is sampled b
+The character that is sampled c
+The character that is sampled !
+the sequence is
+.startsklm!ssabc!
+[49,     1] loss: 0.0701827209
+[49,   251] loss: 0.0626902405
+[49,   501] loss: 0.0683711914
+[49,   751] loss: 0.0900681274
+[49,  1001] loss: 0.0692138123
+[49,  1251] loss: 0.0686594482
+[49,  1501] loss: 0.1404275269
+[49,  1751] loss: 0.0696749817
+[49,  2001] loss: 0.1715429199
+[49,  2251] loss: 0.0961701660
+The character that is sampled a
+The character that is sampled b
+The character that is sampled c
+The character that is sampled !
+The character that is sampled a
+The character that is sampled b
+The character that is sampled c
+The character that is sampled !
+The character that is sampled s
+The character that is sampled s
+the sequence is
+.startsabc!abc!ss
+[50,     1] loss: 0.0672544128
+[50,   251] loss: 0.0622779663
+[50,   501] loss: 0.0895806213
+[50,   751] loss: 0.0904754639
+[50,  1001] loss: 0.0705168335
+[50,  1251] loss: 0.0698480164
+[50,  1501] loss: 0.0573689880
+[50,  1751] loss: 0.1525548096
+[50,  2001] loss: 0.0707837036
+[50,  2251] loss: 0.0676647949
+The character that is sampled s
+The character that is sampled a
+The character that is sampled b
+The character that is sampled c
+The character that is sampled !
+The character that is sampled a
+The character that is sampled b
+The character that is sampled c
+The character that is sampled !
+The character that is sampled s
+the sequence is
+.startssabc!abc!s
